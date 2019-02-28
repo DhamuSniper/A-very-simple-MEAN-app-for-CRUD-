@@ -1,0 +1,52 @@
+<form #userForm="ngForm"   (ngSubmit)="onSave(userForm.value)" novalidate>  
+<table>  
+<tr>  
+<td>name</td>  
+<td>   
+<input name="id" type="hidden"     [(ngModel)]="id" />  
+<input name="name" type="text"  required  [(ngModel)]="name" />  
+</td>  
+</tr>  
+
+<tr>  
+    <td>country</td>  
+    <td>    
+    <input name="country" required  type="text"   [(ngModel)]="country" /></td>  
+</tr>  
+<tr>  
+    <td colspan="2">  
+    <input type="submit" value="{{valbutton}}" />  
+    </td>  
+</tr>
+
+ </table>  
+ <td >
+    <span *ngIf="isavailable;then condition1"></span>
+    <ng-template #condition1><button (click)="addData($event)">Add Data</button></ng-template>
+</td>
+<tr>
+  <td id="NotificationAlert">
+    {{NotificationAlert}}
+  </td>
+</tr>
+</form>   
+  
+<table id="list">  
+  
+  <tr>  
+    <td>Id</td>  
+    <td>Name</td>  
+    <td>Country</td>  
+    <td>Edit</td>  
+    <td>Delete</td>  
+  </tr>  
+  <tr *ngFor="let kk of Repdata;let ind = index">  
+       
+    <td>{{ind + 1}}</td>  
+    <td>{{kk.name}}</td>  
+    <td>{{kk.country}}</td>  
+    <td><button (click)="edit(kk)" style="color:blueviolet">Edit</button></td>  
+    <td><button (click)="delete(kk._id)" style="color:rgb(22, 86, 182)">Delete</button>  </td>  
+  </tr>  
+</table>  
+  

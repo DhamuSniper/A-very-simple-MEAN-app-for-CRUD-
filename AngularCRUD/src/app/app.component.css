@@ -1,0 +1,8 @@
+form{
+    border:5px solid Black;
+    display:inline-block;
+    
+}
+#NotificationAlert{
+    color: green;
+}
